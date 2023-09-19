@@ -8,7 +8,7 @@ with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
 VERSION = "0.0.1"
-DESCRIPTION = "My first Python package"
+DESCRIPTION = "Package with utility functions and classes to work with Pygame."
 
 setup(
     name="pygutils",
