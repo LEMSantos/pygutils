@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 DESCRIPTION = "Package with utility functions and classes to work with Pygame."
 
 setup(
@@ -21,7 +21,7 @@ setup(
     long_description=long_description,
     packages=find_packages(),
     install_requires=["pygame"],
-    tests_require=["parametrized"],
+    tests_require=["parameterized"],
     keywords=["python", "pygame", "utility", "helpers"],
     project_urls={
         "Bug Tracker": "https://github.com/LEMSantos/pygutils/issues",
