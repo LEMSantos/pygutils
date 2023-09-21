@@ -27,7 +27,7 @@ Conteúdo
 
 <div id="animation" />
 
-### Animation -- [Exemplo](https://github.com/LEMSantos/pygutils/examples/animation_example.py)
+### Animation -- [Exemplo](https://github.com/LEMSantos/pygutils/pygutils/examples/animation_example.py)
 
 ```python
 class pygutils.animation.Animation(
