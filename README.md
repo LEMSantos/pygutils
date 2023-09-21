@@ -1,13 +1,3 @@
-<style>
-td, th {
-   border: none!important;
-}
-
-td {
-    vertical-align: top;
-}
-</style>
-
 pygutils
 ========
 
@@ -37,7 +27,7 @@ Conteúdo
 
 <div id="animation" />
 
-### Animation -- [Exemplo](/examples/animation_example.py)
+### Animation -- [Exemplo](https://github.com/LEMSantos/pygutils/examples/animation_example.py)
 
 ```python
 class pygutils.animation.Animation(
@@ -66,19 +56,19 @@ Classe que representa uma animação a partir de uma sequência de frames que s�
 ```python
 property Animation.finished -> bool
 ```
-<div style="padding-left: 30px;">Propriedade que identifica se a animação foi finalizada. Em loops essa propriedade fica verdadeira apenas até a próxima chamada do método `update`.</div><br>
+- Propriedade que identifica se a animação foi finalizada. Em loops essa propriedade fica verdadeira apenas até a próxima chamada do método `update`.
 
 ```python
 Animation.next(self) -> pygame.Surface
 ```
-<div style="padding-left: 30px;">Método que retorna a próxima superfície da sequência.</div><br>
+- Método que retorna a próxima superfície da sequência.
 
 ```python
 Animation.reset(self) -> None
 ```
-<div style="padding-left: 30px;">Método que retorna a animação para o estado inicial.</div><br>
+- Método que retorna a animação para o estado inicial.
 
 ```python
 Animation.update(self, delta_time: float) -> None
 ```
-<div style="padding-left: 30px;">Método que atualiza o índice da animação, chama o callback na finalização e reseta automaticamente caso seja uma animação em loop. Esse método deve ser chamado apenas uma vez a cada frame do jogo. O <strong>delta_time</strong> representa o tempo entre dois frames consecutivos.</div>
+- Método que atualiza o índice da animação, chama o callback na finalização e reseta automaticamente caso seja uma animação em loop. Esse método deve ser chamado apenas uma vez a cada frame do jogo. O <strong>delta_time</strong> representa o tempo entre dois frames consecutivos.
