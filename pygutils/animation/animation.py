@@ -25,7 +25,10 @@ class Animation(AnimationContract):
         return self.index >= len(self.frames_sequence)
 
     def next(self) -> Surface:
-        return self.frames_sequence[int(self.index)]
+        current_index = int(self.index)
+        last_index = len(self.frames_sequence) - 1
+
+        return self.frames_sequence[min(current_index, last_index)]
 
     def reset(self) -> None:
         self.index = 0
