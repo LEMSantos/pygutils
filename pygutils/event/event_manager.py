@@ -8,7 +8,7 @@ class EventManager:
         self.__listeners: dict[str, set[EventListener]] = defaultdict(set)
 
     @property
-    def listeners(self) -> list[EventListener]:
+    def listeners(self) -> dict[str, set[EventListener]]:
         return self.__listeners
 
     def subscribe(self, event: str, listener: EventListener) -> None:
