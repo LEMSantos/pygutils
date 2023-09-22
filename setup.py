@@ -5,9 +5,9 @@ import os
 here = os.path.abspath(os.path.dirname(__file__))
 
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
-    long_description = "\n" + fh.read()
+    long_description = "\n" + "\n".join(fh.readlines()[2:])
 
-VERSION = "0.0.14"
+VERSION = "0.0.15"
 DESCRIPTION = "Package with utility functions and classes to work with Pygame."
 
 setup(
