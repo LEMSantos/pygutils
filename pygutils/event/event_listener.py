@@ -1,4 +1,5 @@
 from abc import ABCMeta
+from inspect import signature
 
 
 class EventListener(metaclass=ABCMeta):
@@ -8,4 +9,10 @@ class EventListener(metaclass=ABCMeta):
 
     @classmethod
     def __subclasshook__(cls, __subclass: type) -> bool:
-        return hasattr(__subclass, "notify") and callable(__subclass.notify)
+        return (
+            hasattr(__subclass, "notify")
+            and callable(__subclass.notify)
+            and {"self", "event", "args", "kwargs"}.issubset(
+                set(signature(__subclass.notify).parameters.keys())
+            )
+        )
