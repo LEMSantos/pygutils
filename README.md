@@ -21,7 +21,7 @@ Conteúdo
 
 - [Animation](#animation)
 - Camera
-- Event
+- [Event](#event)
 - [Timer](#timer)
 
 
@@ -72,6 +72,71 @@ Animation.reset(self) -> None
 Animation.update(self, delta_time: float) -> None
 ```
 - Método que atualiza o índice da animação, chama o callback na finalização e reseta automaticamente caso seja uma animação em loop. Esse método deve ser chamado apenas uma vez a cada frame do jogo. O <strong>delta_time</strong> representa o tempo entre dois frames consecutivos.
+
+
+<div id="event" />
+
+### Event -- [Exemplo](https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/event_example.py)
+
+```python
+class pygutils.event.EventManager()
+```
+
+Classe que implementa o padrão de projeto Observer, que consiste em um mecanismo de assinatura para notificar multiplos objetos sobre qualquer evento que aconteça no objeto que está sendo observado. Essa classe pode ser utilizada para herança, que permite a qualquer classe se tornar um `publisher`, ou como um atributo público no objeto que será observado. Qualquer classe que atuará como `subscriber` deve possuir um método com a assinatura:
+
+```python
+def notify(self, event: str, *args, **kwargs) -> None: ...
+```
+
+#### Métodos e propriedades
+
+```python
+property EventManager.listeners -> dict[str, set[EventListener]]
+```
+- Propriedade que retorna o mapa de cada evento e dos subscribers registrados para ele.
+
+```python
+EventManager.subscribe(self, event: str, listener: EventListener) -> None
+```
+- Permite que um objeto que atenda as especificações possa receber as notificações emitidas através do manager.
+<table align="center">
+    <tr>
+        <td><strong>Parâmetros:</strong></td>
+        <td>
+            <strong>event</strong>: string que identifica o evento;<br>
+            <strong>listener</strong>: objeto que será registrado para ser notificado quando o evento for emitido.<br>
+        </td>
+    </tr>
+</table>
+
+```python
+EventManager.unsubscribe(self, event: str, listener: EventListener) -> None
+```
+- Permite que um objeto saia da lista de notificações de um evento específico.
+<table align="center">
+    <tr>
+        <td><strong>Parâmetros:</strong></td>
+        <td>
+            <strong>event</strong>: string que identifica o evento;<br>
+            <strong>listener</strong>: objeto que será retirado da lista de notificações para o evento.<br>
+        </td>
+    </tr>
+</table>
+
+```python
+EventManager.notify(self, event: str, *args, **kwargs) -> None
+```
+- Notifica todos os objetos registrado para o evento que está sendo emitido.
+<table align="center">
+    <tr>
+        <td><strong>Parâmetros:</strong></td>
+        <td>
+            <strong>event</strong>: string que identifica o evento;<br>
+            <strong>*args</strong>: argumentos posicionais adicionais que serão passados na hora da notificação;<br>
+            <strong>**args</strong>: argumentos nomeados adicionais que serão passados na hora da notificação.<br>
+        </td>
+    </tr>
+</table>
 
 
 <div id="timer" />
