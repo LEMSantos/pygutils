@@ -18,6 +18,14 @@ class EventManagerTest(unittest.TestCase):
 
         self.assertTrue(listener in manager.listeners["event:test"])
 
+    def test_cant_subscribe_a_object_that_isnt_a_listener(self):
+        class NotHasNotifyMethod:
+            pass
+
+        with self.assertRaises(TypeError):
+            manager = EventManager()
+            manager.subscribe("event:test", NotHasNotifyMethod())
+
     def test_can_unsubscribe_from_an_event(self):
         listener = TestListener()
 

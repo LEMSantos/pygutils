@@ -5,17 +5,23 @@ from .event_listener import EventListener
 
 class EventManager:
     def __init__(self) -> None:
-        self.__listeners: dict[list[EventListener]] = defaultdict(list)
+        self.__listeners: dict[str, set[EventListener]] = defaultdict(set)
 
     @property
     def listeners(self) -> list[EventListener]:
         return self.__listeners
 
     def subscribe(self, event: str, listener: EventListener) -> None:
-        self.__listeners[event].append(listener)
+        if not isinstance(listener, EventListener):
+            raise TypeError(
+                "listener must have a public method with signature: "
+                "notify(self, event: str, *args, **kwargs)"
+            )
+
+        self.__listeners[event].add(listener)
 
     def unsubscribe(self, event: str, listener: EventListener) -> None:
-        self.__listeners[event].remove(listener)
+        self.__listeners[event].discard(listener)
 
     def notify(self, event: str, *args, **kwargs) -> None:
         for listener in self.__listeners[event]:
