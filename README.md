@@ -22,7 +22,7 @@ Conteúdo
 - [Animation](#animation)
 - Camera
 - Event
-- Timer
+- [Timer](#timer)
 
 
 <div id="animation" />
@@ -72,3 +72,48 @@ Animation.reset(self) -> None
 Animation.update(self, delta_time: float) -> None
 ```
 - Método que atualiza o índice da animação, chama o callback na finalização e reseta automaticamente caso seja uma animação em loop. Esse método deve ser chamado apenas uma vez a cada frame do jogo. O <strong>delta_time</strong> representa o tempo entre dois frames consecutivos.
+
+
+<div id="timer" />
+
+### Timer -- [Exemplo](https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/timer_example.py)
+
+```python
+class pygutils.timer.Timer(
+    duration_ms: int,
+    callback: Callable[[], None] | None = None)
+```
+
+Classe que implementa um mecanismo para contabilizar o tempo decorrido e executar uma ação baseada em um callback passado como parâmetro para a instância. Com essa classe é possível implementar cooldowns e ações que precisam acontecer apenas uma vez após um determinado tempo.
+
+<table>
+    <tr>
+        <td><strong>Parâmetros:</strong></td>
+        <td>
+            <strong>duration_ms</strong>: tempo de duração do timer em milissegundos;<br>
+            <strong>callback</strong>: ação que será executada após o tempo de duração ser finalizado.<br>
+        </td>
+    </tr>
+</table>
+
+#### Métodos e propriedades
+
+```python
+property Timer.active -> bool
+```
+- Propriedade que identifica se o timer está ativo, ou seja, ainda não passou o tempo necessário para atingir a duração especificada.
+
+```python
+Timer.activate(self) -> None
+```
+- Ativa a contagem do timer. Ele pode ser reativado quantas vezes forem necessárias.
+
+```python
+Timer.deactivate(self) -> None
+```
+- Desabilita a contagem do timer. Esse método é chamado automaticamente após o tempo de duração chegar ao fim.
+
+```python
+Timer.update(self) -> None
+```
+- Verifica se o timer já foi finalizado, executa o callback, caso seja especificado, e desativa a contagem. Esse método deve ser chamado apenas uma vez a cada frame do jogo.
