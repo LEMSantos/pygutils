@@ -56,7 +56,7 @@ class Player(Sprite):
 
 
 pygame.init()
-pygame.display.set_caption("Pygutils Timer Example")
+pygame.display.set_caption("Pygutils Event Example")
 
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 clock = pygame.time.Clock()
