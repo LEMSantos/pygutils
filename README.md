@@ -20,7 +20,7 @@ Conteúdo
 --------
 
 - [Animation](#animation)
-- Camera
+- [Camera](#camera)
 - [Event](#event)
 - [Timer](#timer)
 
@@ -72,6 +72,49 @@ Animation.reset(self) -> None
 Animation.update(self, delta_time: float) -> None
 ```
 - Método que atualiza o índice da animação, chama o callback na finalização e reseta automaticamente caso seja uma animação em loop. Esse método deve ser chamado apenas uma vez a cada frame do jogo. O <strong>delta_time</strong> representa o tempo entre dois frames consecutivos.
+
+
+<div id="camera" />
+
+### Camera -- [Exemplo](https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/camera_example.py)
+
+```python
+class pygutils.camera.TopDownCamera(
+        bg_surface: Surface | None,
+        *sprites: Any | AbstractGroup | Iterable)
+```
+
+Classe derivada da `pygame.sprite.Group` contendo todas as funcionalidades porém adaptada para desenhar todos os sprites com um offset baseado no target, criando uma sensação de movimento onde o target consegue se mover pelo cenário.
+
+Essa câmera considera a eixo `y` da tela, desenhando o sprite com o maior `y` acima do sprite com o menor, criando assim um efeito de sobreposição, dando uma melhor experiência para o player.
+
+O desenho dos sprites é otimizado para que a apenas aqueles que estão visíveis atualmente na janela sejam desenhados, aumentando a performance para jogos com muitos elementos ativos ao mesmo tempo.
+
+<table>
+    <tr>
+        <td><strong>Parâmetros:</strong></td>
+        <td>
+            <strong>bg_surface</strong>: imagem do background que será desenhada antes de todos os sprites;<br>
+            <strong>*sprites</strong>: lista de sprites para manter a assinatura compatível com a classe `pygame.sprite.Group`<br>
+        </td>
+    </tr>
+</table>
+
+#### Métodos e propriedades
+
+```python
+TopDownCamera.draw(self, surface: Surface, target: Sprite) -> list[Rect]
+```
+- Desenha na tela os elementos presentes no grupo que estão visíveis atualmente na janela. Essa classe também considera o elemento `y` de cada sprite, criando o efeito de sobreposição em jogos top-down.
+<table align="center">
+    <tr>
+        <td><strong>Parâmetros:</strong></td>
+        <td>
+            <strong>surface</strong>: tela principal do jogo onde os elementos serão desenhados;<br>
+            <strong>target</strong>: objeto que será a referência para a centralização da câmera. Em geral, esse elemento é o player.<br>
+        </td>
+    </tr>
+</table>
 
 
 <div id="event" />
@@ -182,3 +225,12 @@ Timer.deactivate(self) -> None
 Timer.update(self) -> None
 ```
 - Verifica se o timer já foi finalizado, executa o callback, caso seja especificado, e desativa a contagem. Esse método deve ser chamado apenas uma vez a cada frame do jogo.
+
+
+Créditos
+--------
+
+#### assets
+
+- [Sprout Lands - Asset Pack](https://cupnooble.itch.io/sprout-lands-asset-pack)
+- [Generic OLDWEST Pack](https://bakudas.itch.io/generic-oldwest-pack)

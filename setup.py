@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + "".join(fh.readlines()[3:])
 
-VERSION = "0.0.20"
+VERSION = "0.1.0"
 DESCRIPTION = "Package with utility functions and classes to work with Pygame."
 
 setup(
@@ -28,7 +28,7 @@ setup(
         "Source": "https://github.com/LEMSantos/pygutils",
     },
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
