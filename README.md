@@ -90,8 +90,9 @@ Animation.copy(self) -> Animation
 </summary>
 
 ```python
-class pygutils.camera.TopDownCamera(
+class pygutils.camera.Camera2D(
         bg_surface: Surface | None,
+        camera_delay: Annotated[float, ValueRange(1, 100)],
         *sprites: Any | AbstractGroup | Iterable)
 ```
 
@@ -106,6 +107,7 @@ O desenho dos sprites é otimizado para que a apenas aqueles que estão visívei
         <td><strong>Parâmetros:</strong></td>
         <td>
             <strong>bg_surface</strong>: imagem do background que será desenhada antes de todos os sprites;<br>
+            <strong>camera_delay</strong>: adiciona o efeito de delay no movimento da câmera. O valor deve estar entre 1 e 100, sendo 1 sem nenhum delay e 100 o máximo possível<br>
             <strong>*sprites</strong>: lista de sprites para manter a assinatura compatível com a classe `pygame.sprite.Group`<br>
         </td>
     </tr>
@@ -114,7 +116,7 @@ O desenho dos sprites é otimizado para que a apenas aqueles que estão visívei
 #### Métodos e propriedades
 
 ```python
-TopDownCamera.draw(self, surface: Surface, target: Sprite) -> list[Rect]
+Camera2D.draw(self, surface: Surface, target: Sprite) -> list[Rect]
 ```
 - Desenha na tela os elementos presentes no grupo que estão visíveis atualmente na janela. Essa classe também considera o elemento `y` de cada sprite, criando o efeito de sobreposição em jogos top-down.
 <table align="center">

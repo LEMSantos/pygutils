@@ -8,7 +8,7 @@ import pygame
 from pygame.sprite import Sprite
 from pygame.math import Vector2
 
-from pygutils.camera import TopDownCamera
+from pygutils.camera import Camera2D
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -62,7 +62,7 @@ clock = pygame.time.Clock()
 bg_surface = pygame.image.load(os.path.join(BASE_PATH, "bg.png")).convert()
 
 player = Player((WINDOW_WIDTH, WINDOW_HEIGHT))
-all_sprites = TopDownCamera(bg_surface, player)
+all_sprites = Camera2D(bg_surface, 30, player)
 
 while True:
     for event in pygame.event.get():
