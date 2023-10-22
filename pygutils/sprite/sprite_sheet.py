@@ -24,7 +24,7 @@ class SpriteSheet:
             )
         )
 
-    def __build_surfaces_map(self) -> dict[str, Surface]:
+    def __build_surfaces_map(self) -> dict[tuple[int, int], Surface]:
         surfaces_map = {}
 
         for row in range(self.rows):
