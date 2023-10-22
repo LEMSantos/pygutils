@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + "".join(fh.readlines()[3:])
 
-VERSION = "0.2.2"
+VERSION = "0.2.3"
 DESCRIPTION = "Package with utility functions and classes to work with Pygame."
 
 setup(

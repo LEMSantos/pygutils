@@ -19,12 +19,6 @@ pip install pygutils
 Conteúdo
 --------
 
-- [Animation](#animation)
-- [Camera](#camera)
-- [Event](#event)
-- [Timer](#timer)
-
-
 <div id="animation" />
 
 <details>
