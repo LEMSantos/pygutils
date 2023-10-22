@@ -45,3 +45,11 @@ class Animation(AnimationContract):
 
             if self.loop:
                 self.reset()
+
+    def copy(self) -> "Animation":
+        return Animation(
+            frames_sequence=self.frames_sequence[:],
+            animation_speed=self.animation_speed,
+            on_finish=self.on_finish,
+            loop=self.loop,
+        )

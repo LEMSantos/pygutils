@@ -73,6 +73,11 @@ Animation.update(self, delta_time: float) -> None
 ```
 - Método que atualiza o índice da animação, chama o callback na finalização e reseta automaticamente caso seja uma animação em loop. Esse método deve ser chamado apenas uma vez a cada frame do jogo. O <strong>delta_time</strong> representa o tempo entre dois frames consecutivos.
 
+```python
+Animation.copy(self) -> Animation
+```
+- Método que permite que a animação faça uma cópia de si mesma, mantendo os mesmos atributos passados anteriormente na hora da instânciação. A nova animação sempre começa no início dos frames.
+
 
 <div id="camera" />
 

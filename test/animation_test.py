@@ -72,3 +72,15 @@ class AnimationTest(unittest.TestCase):
         animation.update(delta_time)
 
         self.assertEqual(animation.index, expected_index)
+
+    def test_animation_can_make_a_copy_of_himself(self):
+        animation = Animation(self.animation_frames, 1)
+        animation.index = 1
+
+        animation_copy = animation.copy()
+
+        self.assertEqual(animation.loop, animation_copy.loop)
+        self.assertEqual(animation.on_finish, animation_copy.on_finish)
+        self.assertListEqual(animation.frames_sequence, animation_copy.frames_sequence)
+        self.assertEqual(animation.animation_speed, animation_copy.animation_speed)
+        self.assertEqual(0, animation_copy.index)
