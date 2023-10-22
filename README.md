@@ -27,7 +27,12 @@ Conteúdo
 
 <div id="animation" />
 
-### Animation -- [Exemplo](https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/animation_example.py)
+<details>
+
+<summary>
+    <strong>Animation --</strong>
+    <a href="https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/animation_example.py">Exemplo</a>
+</summary>
 
 ```python
 class pygutils.animation.Animation(
@@ -78,10 +83,17 @@ Animation.copy(self) -> Animation
 ```
 - Método que permite que a animação faça uma cópia de si mesma, mantendo os mesmos atributos passados anteriormente na hora da instânciação. A nova animação sempre começa no início dos frames.
 
+</details>
+
 
 <div id="camera" />
 
-### Camera -- [Exemplo](https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/camera_example.py)
+<details>
+
+<summary>
+    <strong>Camera --</strong>
+    <a href="https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/camera_example.py">Exemplo</a>
+</summary>
 
 ```python
 class pygutils.camera.TopDownCamera(
@@ -121,10 +133,17 @@ TopDownCamera.draw(self, surface: Surface, target: Sprite) -> list[Rect]
     </tr>
 </table>
 
+</details>
+
 
 <div id="event" />
 
-### Event -- [Exemplo](https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/event_example.py)
+<details>
+
+<summary>
+    <strong>Event --</strong>
+    <a href="https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/event_example.py">Exemplo</a>
+</summary>
 
 ```python
 class pygutils.event.EventManager()
@@ -186,10 +205,17 @@ EventManager.notify(self, event: str, *args, **kwargs) -> None
     </tr>
 </table>
 
+</details>
+
 
 <div id="timer" />
 
-### Timer -- [Exemplo](https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/timer_example.py)
+<details>
+
+<summary>
+    <strong>Timer --</strong>
+    <a href="https://github.com/LEMSantos/pygutils/blob/main/pygutils/examples/timer_example.py">Exemplo</a>
+</summary>
 
 ```python
 class pygutils.timer.Timer(
@@ -230,6 +256,8 @@ Timer.deactivate(self) -> None
 Timer.update(self) -> None
 ```
 - Verifica se o timer já foi finalizado, executa o callback, caso seja especificado, e desativa a contagem. Esse método deve ser chamado apenas uma vez a cada frame do jogo.
+
+</details>
 
 
 Créditos
